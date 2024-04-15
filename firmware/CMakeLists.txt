@@ -19,6 +19,7 @@ include_directories("${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_INCLUDEDIR}")
 target_include_directories(${PROJECT_NAME}
     PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        ${CMAKE_CURRENT_SOURCE_DIR}/../pico_neopixels/include
         $<INSTALL_INTERFACE:include>
 )
 
@@ -27,12 +28,12 @@ target_compile_features(${PROJECT_NAME}
     PUBLIC
 )
 
-# Set some target properties of the installed binaries, liked if they have position independent code
-
 # Link the libraries we want, like OpenCV or the cuda toolkit
 target_link_libraries(${PROJECT_NAME}
     # any dependency library we are linking...
     pico_stdlib
+    hardware_pio
+    pico_neopixel
 )
 
 # Send to boilerplate!
