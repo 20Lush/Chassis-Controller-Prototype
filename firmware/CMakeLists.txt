@@ -33,6 +33,7 @@ target_link_libraries(${PROJECT_NAME}
     # any dependency library we are linking...
     pico_stdlib
     hardware_pio
+    hardware_pwm
     pico_neopixel
 )
 
